@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME ZONE | Gaming Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="logo">GAME <span>ZONE</span></div>
+
+        <p class="menu-title">MAIN MENU</p>
+        <nav class="side-nav">
+            <a class="active" href="#">Dashboard</a>
+            <a href="#games">Games</a>
+            <a href="#rewards">Rewards</a>
+            <a href="#ranking">Leaderboard</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile-avatar">G</div>
+            <div>
+                <strong id="sidebar-name">Guest Player</strong>
+                <p>Gaming account</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="welcome">WELCOME TO YOUR ARENA</p>
+                <h2 id="welcome-name">Welcome, Player</h2>
+            </div>
+            <div class="topbar-right">
+                <span class="online-status">● ONLINE</span>
+                <button class="login-button" onclick="changePlayer()">LOGIN</button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">YOUR GAMING DESTINATION</span>
+                <h1>PLAY MORE.<br><span>WIN BIGGER.</span></h1>
+                <p>Challenge yourself, collect points, unlock rewards and climb the leaderboard.</p>
+                <button onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+                    EXPLORE GAMES
+                </button>
+            </div>
+            <div class="hero-image">🎮</div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-icon">★</div>
+                <div>
+                    <p>TOTAL POINTS</p>
+                    <h2 id="total-points">0</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">◆</div>
+                <div>
+                    <p>PLAYER LEVEL</p>
+                    <h2 id="player-level">1</h2>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div>
+                    <p>UNLOCKED REWARDS</p>
+                    <h2 id="reward-count">0</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="games" class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">CHOOSE YOUR CHALLENGE</p>
+                    <h2>GAMING <span>ARENA</span></h2>
+                </div>
+                <span class="game-count">11 GAMES</span>
+            </div>
+
+            <div class="games-container">
+
+                <article class="game-card">
+                    <div class="game-banner">🐍</div>
+                    <div class="game-info">
+                        <span class="game-category">ARCADE</span>
+                        <h3>Snake</h3>
+                        <p>Collect points and beat your best score.</p>
+                        <button onclick="playGame('snake')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">⭕</div>
+                    <div class="game-info">
+                        <span class="game-category">STRATEGY</span>
+                        <h3>Tic Tac Toe</h3>
+                        <p>Challenge a friend in this classic game.</p>
+                        <button onclick="playGame('tic')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🧠</div>
+                    <div class="game-info">
+                        <span class="game-category">PUZZLE</span>
+                        <h3>Memory</h3>
+                        <p>Find all matching pairs.</p>
+                        <button onclick="playGame('memory')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">❓</div>
+                    <div class="game-info">
+                        <span class="game-category">KNOWLEDGE</span>
+                        <h3>Quiz</h3>
+                        <p>Answer questions and earn points.</p>
+                        <button onclick="playGame('quiz')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">⚽</div>
+                    <div class="game-info">
+                        <span class="game-category">SPORT</span>
+                        <h3>Football</h3>
+                        <p>Take penalty shots and score goals.</p>
+                        <button onclick="playGame('football')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🏀</div>
+                    <div class="game-info">
+                        <span class="game-category">SPORT</span>
+                        <h3>Basketball</h3>
+                        <p>Choose your power and make the shot.</p>
+                        <button onclick="playGame('basketball')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🎾</div>
+                    <div class="game-info">
+                        <span class="game-category">SPORT</span>
+                        <h3>Tennis</h3>
+                        <p>React quickly and return the ball.</p>
+                        <button onclick="playGame('tennis')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🚴</div>
+                    <div class="game-info">
+                        <span class="game-category">RACING</span>
+                        <h3>Bicycle</h3>
+                        <p>Avoid obstacles and complete the ride.</p>
+                        <button onclick="playGame('bicycle')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🏍️</div>
+                    <div class="game-info">
+                        <span class="game-category">RACING</span>
+                        <h3>Motorcycle</h3>
+                        <p>Ride through the track and avoid obstacles.</p>
+                        <button onclick="playGame('moto')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🏎️</div>
+                    <div class="game-info">
+                        <span class="game-category">RACING</span>
+                        <h3>Car Racing</h3>
+                        <p>Drive, dodge obstacles and earn points.</p>
+                        <button onclick="playGame('car')">PLAY NOW</button>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <div class="game-banner">🚕</div>
+                    <div class="game-info">
+                        <span class="game-category">DRIVING</span>
+                        <h3>Taxi Driver</h3>
+                        <p>Pick up passengers and complete your route.</p>
+                        <button onclick="playGame('taxi')">PLAY NOW</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="game-section" class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">LIVE GAME</p>
+                    <h2>GAME <span>ROOM</span></h2>
+                </div>
+            </div>
+            <div id="game-area">
+                <div class="empty-game">
+                    <div>🎮</div>
+                    <h3>Your game will appear here</h3>
+                    <p>Choose a game above to start playing.</p>
+                </div>
+            </div>
+            <button class="close-button" onclick="closeGame()">CLOSE GAME</button>
+        </section>
+
+        <section id="rewards" class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">YOUR ACHIEVEMENTS</p>
+                    <h2>PLAYER <span>REWARDS</span></h2>
+                </div>
+            </div>
+
+            <div class="rewards-container">
+                <div class="reward-card">
+                    <div class="reward-icon">🥉</div>
+                    <h3>BRONZE</h3>
+                    <p>Reach 50 points</p>
+                    <strong id="bronze-status">LOCKED</strong>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-icon">🥈</div>
+                    <h3>SILVER</h3>
+                    <p>Reach 150 points</p>
+                    <strong id="silver-status">LOCKED</strong>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-icon">🥇</div>
+                    <h3>GOLD</h3>
+                    <p>Reach 300 points</p>
+                    <strong id="gold-status">LOCKED</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="ranking" class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">TOP PLAYERS</p>
+                    <h2>GLOBAL <span>LEADERBOARD</span></h2>
+                </div>
+                <button class="login-button" onclick="loadLeaderboard()">REFRESH</button>
+            </div>
+
+            <div class="ranking-box">
+                <div id="leaderboard-list">
+                    <p>Loading leaderboard...</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h2>GAME ZONE</h2>
+            <p>Play. Compete. Improve.</p>
+            <p class="copyright">© 2026 GAME ZONE. All rights reserved.</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
